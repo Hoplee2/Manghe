@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>盲盒抽奖</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		h1 {
+			font-size: 36px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.button {
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 24px;
+			background-color: #00c8ff;
+			color: #fff;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.result {
+			font-size: 24px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>盲盒抽奖</h1>
+	<p>请选择要抽取的盲盒类型：</p>
+	<button class="button" onclick="startLottery(1)">盲盒1（50美元）</button>
+	<button class="button" onclick="startLottery(2)">盲盒2（90美元）</button>
+	<p class="result"></p>
+	<script>
+		function startLottery(type) {
+			var price;
+			var prizeList;
+			if (type == 1) {
+				price = 50;
+				prizeList = [
+					{name: '奖品1', value: 10},
+					{name: '奖品2', value: 20},
+					{name: '奖品3', value: 28},
+					{name: '奖品4', value: 35},
+					{name: '奖品5', value: 47},
+					{name: '奖品6', value: 68},
+					{name: '奖品7', value: 88},
+					{name: '奖品8', value: 95},
+					{name: '奖品9', value: 98},
+					{name: '奖品10', value: 100}
+				];
+			} else if (type == 2) {
+				price = 90;
+				prizeList = [
+					{name: '奖品A', value: 50},
+					{name: '奖品B', value: 80},
+					{name: '奖品C', value: 150},
+					{name: '奖品D', value: 344},
+					{name: '奖品E', value: 500}
+				];
+			}
+			var prize = prizeList[Math.floor(Math.random() * prizeList.length)];
+			var resultElement = document.querySelector('.result');
+			resultElement.textContent = '恭喜您抽到了 ' + prize.name + '，价值 ' + prize.value + ' 美元！';
+			resultElement.style.color = 'green';
+		}
+	</script>
+</body>
+</html>
